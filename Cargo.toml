@@ -1,0 +1,31 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/governance-contracts",
+    "crates/governance-validator",
+    "crates/governance-effectlog",
+    "crates/governance-cli",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+rust-version = "1.80"
+authors = ["SILENCE-OBJECTS"]
+repository = "https://github.com/SILENCE-OBJECTS/silence-longevity-modules"
+description = "Open-core publication funnel and governance validator. No scoring engine. No raw streams."
+
+[workspace.dependencies]
+serde = { version = "1.0", features = ["derive"] }
+thiserror = "2.0"
+sha2 = "0.10"
+hex = "0.4"
+clap = { version = "4.5", features = ["derive"] }
+governance-contracts = { path = "crates/governance-contracts" }
+governance-validator = { path = "crates/governance-validator" }
+governance-effectlog = { path = "crates/governance-effectlog" }
+
+[profile.release]
+lto = true
+codegen-units = 1

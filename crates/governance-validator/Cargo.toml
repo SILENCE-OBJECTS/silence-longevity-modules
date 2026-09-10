@@ -1,0 +1,12 @@
+[package]
+name = "governance-validator"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+description = "Filename, field, FSM, S11, and publication gates."
+
+[dependencies]
+governance-contracts.workspace = true
+thiserror.workspace = true
+serde.workspace = true

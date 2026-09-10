@@ -1,0 +1,30 @@
+# SILENCE-OBJECTS / silence-longevity-modules
+
+is: open-core publication funnel + governance validator (Rust)
+is: PUBLIC CANDIDATE contracts, synthetic fixtures, deterministic CLI
+is-not: scoring engine, fusion, user model, raw telemetry, clinical product
+is-not: production API, SDK seat offer, medical device, diagnosis
+
+canonical:
+- README.md
+- docs/public-contracts.md
+- docs/no-raw-streams.md
+- docs/injected-clock.md
+- docs/PUBLICATION_POLICY.md
+- docs/RECORD_LIFECYCLE.md
+- docs/ARCHITECTURE.md
+
+prove:
+- cargo test --workspace --locked
+- cargo run -p governance-cli -- validate records/
+- ingest() returns RAW_STREAM_REFUSED on raw streams
+- hash(record) independent of ambient clock
+
+labels: MEASURED | MODELED | H
+public claims in this repo are design contracts (H/MODELED), not MEASURED product results.
+
+community may: audit contracts, run synthetic fixtures, file FSM edge cases, verify determinism
+community may-not: import enterprise scoring, commit PII, publish without OWNER decision
+
+org: https://github.com/SILENCE-OBJECTS
+repo: https://github.com/SILENCE-OBJECTS/silence-longevity-modules

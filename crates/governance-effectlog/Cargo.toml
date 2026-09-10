@@ -1,0 +1,13 @@
+[package]
+name = "governance-effectlog"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+description = "Deterministic append-only hash chain. Injected clock. No Date::now in the hash."
+
+[dependencies]
+governance-contracts.workspace = true
+sha2.workspace = true
+hex.workspace = true
+thiserror.workspace = true

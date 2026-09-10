@@ -1,0 +1,18 @@
+[package]
+name = "governance-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+description = "intake / validate / publication-check / verify-chain"
+
+[[bin]]
+name = "governance-cli"
+path = "src/main.rs"
+
+[dependencies]
+clap.workspace = true
+governance-contracts.workspace = true
+governance-validator.workspace = true
+governance-effectlog.workspace = true
+thiserror.workspace = true

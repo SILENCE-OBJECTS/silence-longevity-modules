@@ -1,0 +1,11 @@
+[package]
+name = "governance-contracts"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+description = "Typed records, statuses, telemetry envelopes. No user model. No scoring."
+
+[dependencies]
+serde.workspace = true
+thiserror.workspace = true

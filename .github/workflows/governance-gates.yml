@@ -1,0 +1,37 @@
+name: governance-gates
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+      - name: fmt
+        run: cargo fmt --all -- --check
+      - name: clippy
+        run: cargo clippy --workspace --all-targets -- -D warnings
+      - name: test
+        run: cargo test --workspace --locked
+      - name: validate records
+        run: cargo run -p governance-cli -- validate records/
+      - name: intake-check
+        run: cargo run -p governance-cli -- intake-check records/00_inbox/
+      - name: publication-check
+        run: cargo run -p governance-cli -- publication-check publications/
+      - name: verify-chain
+        run: cargo run -p governance-cli -- verify-chain records/
+      - name: WORLDHALT
+        run: |
+          if grep -R -n -E "silence-enterprise|fusion-ee|scoring engine" crates; then
+            echo "WORLDHALT"
+            exit 1
+          fi
+          echo "WORLDHALT: ok"
