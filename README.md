@@ -46,3 +46,7 @@ Proper nouns in this tree: PatternLens, PatternsLab, Portal. Scoring stays close
 - `llms.txt` — machine map (20–40 lines)
 
 License: MIT. Enterprise and RESTRICTED records live behind a closed trust boundary (`silence-enterprise`). Dependency may point enterprise → open-core, never the reverse.
+
+## License
+
+Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
